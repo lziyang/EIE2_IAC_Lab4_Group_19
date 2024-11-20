@@ -16,13 +16,13 @@ module regalu #(
     input   logic [D_WIDTH-1:0]  in0,
     input   logic [D_WIDTH-1:0]  in1,
     input logic [D_WIDTH-1:0]   imm,
-    input   logic                   sel,
+    input   logic sel,
     output  logic [D_WIDTH-1:0]  out
 );
 
-logic [A_WIDTH-1:0] address1,
-logic [A_WIDTH-1:0] address2,
-logic [A_WIDTH-1:0] address3,
+    logic [A_WIDTH-1:0] address1;
+    logic [A_WIDTH-1:0] address2;
+    logic [A_WIDTH-1:0] address3;
 
 reg #(A_WIDTH, D_WIDTH) regfile(
     .clk (clk),
