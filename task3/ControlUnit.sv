@@ -1,6 +1,6 @@
 module ControlUnit (
     input  logic [6:0] opcode,
-    input  logic       zero_flag, // ALU zero flag input
+    input  logic       eq,
     output logic       reg_write,
     output logic       alu_src,
     output logic       pc_src,
@@ -20,7 +20,7 @@ module ControlUnit (
                 alu_control = 3'b000; // ALU ADD
             end
             7'b1100011: begin // BNE
-                pc_src = ~zero_flag; // Jump if not equal
+                pc_src = ~eq; // Jump if not equal
                 alu_control = 3'b001; // ALU SUB
             end
             default: begin
@@ -29,3 +29,4 @@ module ControlUnit (
         endcase
     end
 endmodule
+
